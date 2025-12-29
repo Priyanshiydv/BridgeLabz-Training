@@ -7,7 +7,9 @@ class SnakeAndLadder
         Console.WriteLine("Welcome to Snake and Ladder Game!");
         Console.WriteLine("Enter number of players:");
         int p = int.Parse(Console.ReadLine());
+		//to store the position of the players
         int[] points = new int[p];
+		
         while(true)
         {
             for(int i = 0; i < p; i++)
@@ -29,16 +31,22 @@ class SnakeAndLadder
         Console.ReadLine();
         Random random = new Random();
         int dice = random.Next(1, 7);
-        if(point + dice < 100)
+		
+		// Player must get 1 or 6 to start the game
+    if (point == 0 && dice != 1 && dice != 6)
+    {
+        Console.WriteLine("Player " + p + " rolled " + dice +
+                          ". Need 1 or 6 to start. Position remains 0");
+        Console.WriteLine();
+        return point;
+    }
+	
+	//to check player don't cross 100
+        if(point + dice <= 100)
         {
             if(dice + point == 99)
             {
                 point = 6;
-                Console.WriteLine("Oops! Snake bitten you.");
-            }
-            else if(dice + point == 97)
-            {
-                point = 84;
                 Console.WriteLine("Oops! Snake bitten you.");
             }
             else if(dice + point == 94)
@@ -51,7 +59,7 @@ class SnakeAndLadder
                 point = 28;
                 Console.WriteLine("Oops! Snake bitten you.");
             }
-            else if(dice + point == 37)
+            else if(dice + point == 35)
             {
                 point = 7;
                 Console.WriteLine("Oops! Snake bitten you.");
@@ -71,7 +79,7 @@ class SnakeAndLadder
                 point = 87;
                 Console.WriteLine("Yay! You climbed a ladder.");
             }
-            else if(dice + point == 58)
+            else if(dice + point == 59)
             {
                 point = 98;
                 Console.WriteLine("Yay! You climbed a ladder.");
