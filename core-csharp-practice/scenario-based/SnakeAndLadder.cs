@@ -67,22 +67,22 @@ class SnakeAndLadder
             else if(dice + point == 10)
             {
                 point = 61;
-                Console.WriteLine("Yay! You climbed a ladder.");
+                Console.WriteLine("Yay! You climbed ");
             }
             else if(dice + point == 18)
             {
                 point = 51;
-                Console.WriteLine("Yay! You climbed a ladder.");
+                Console.WriteLine("Yay! You climbed ");
             }
             else if(dice + point == 30)
             {
                 point = 87;
-                Console.WriteLine("Yay! You climbed a ladder.");
+                Console.WriteLine("Yay! You climbed ");
             }
             else if(dice + point == 59)
             {
                 point = 98;
-                Console.WriteLine("Yay! You climbed a ladder.");
+                Console.WriteLine("Yay! You climbed ");
             }
             else
             {
