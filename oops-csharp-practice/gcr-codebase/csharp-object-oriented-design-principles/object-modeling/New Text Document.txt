@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+
+class Course
+{
+    public string Name;
+    public Course(string name)
+    {
+        Name = name;
+    }
+}
+
+class Student
+{
+    public string Name;
+    public Student(string name)
+    {
+        Name = name;
+    }
+
+    public void EnrollCourse(Course course)
+    {
+        Console.WriteLine($"{Name} enrolled in {course.Name}");
+    }
+}
+
+class Professor
+{
+    public string Name;
+    public Professor(string name)
+    {
+        Name = name;
+    }
+
+    public void AssignProfessor(Course course)
+    {
+        Console.WriteLine($"{Name} teaches {course.Name}");
+    }
+}
+
+class UniversityManagement
+{
+    static void Main()
+    {
+        Course c = new Course("OOP");
+        Student s = new Student("Neha");
+        Professor p = new Professor("Dr. Singh");
+
+        s.EnrollCourse(c);
+        p.AssignProfessor(c);
+    }
+}
