@@ -11,6 +11,7 @@ namespace EmployeeWage
         void CalculatePartTimeWage();
         void CalculateWageUsingSwitch();
         void CalculateMonthlyWage();
+        void CalculateWageTillCondition();
 
     }
 }

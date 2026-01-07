@@ -15,11 +15,12 @@ namespace EmployeeWage
 
         public void Start()
         {
-            employeeUtility.CheckAttendance();
+            employeeUtility.CheckAttendance(); //UC-0
             employeeUtility.CalculateDailyWage(); //UC-1
             employeeUtility.CalculatePartTimeWage();  //UC-2
             employeeUtility.CalculateWageUsingSwitch(); // UC-4
             employeeUtility.CalculateMonthlyWage();     // UC-5
+            employeeUtility.CalculateWageTillCondition(); //UC-6
         }
 
     }
