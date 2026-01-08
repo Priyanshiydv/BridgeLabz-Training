@@ -88,6 +88,23 @@ namespace EmployeeWage
             int totalWage = totalHours * wagePerHour;
             Console.WriteLine("Total Wage till condition reached: " + totalWage);
         }
+        public void AddEmployee()
+        {
+            Employee emp = new Employee();
+
+            Console.Write("Enter Employee ID: ");
+            emp.EmployeeId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter Employee Name: ");
+            emp.EmployeeName = Console.ReadLine();
+
+            Console.Write("Enter Employee Salary: ");
+            emp.EmployeeSalary = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nEmployee Added Successfully!");
+            Console.WriteLine(emp.ToString());
+        }
+
 
 
 

@@ -6,6 +6,8 @@ namespace EmployeeWage
 {
     internal interface IEmployee
     {
+
+        void AddEmployee();
         void CheckAttendance();
         void CalculateDailyWage();
         void CalculatePartTimeWage();
