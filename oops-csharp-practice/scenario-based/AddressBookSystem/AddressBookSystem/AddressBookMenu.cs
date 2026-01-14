@@ -13,12 +13,13 @@ namespace AddressBookSystem
         {
             while (true)
             {
-                Console.WriteLine("\nAddress Book Menu"); //UC2
-                Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. View Contacts");
-                Console.WriteLine("3. Edit Contact"); //UC3
-                Console.WriteLine("4. Delete Contact"); //UC4
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("\nAddress Book Menu");
+                Console.WriteLine("1. Create Address Book");//UC6
+                Console.WriteLine("2. Add Contact"); //UC2
+                Console.WriteLine("3. View Contacts");
+                Console.WriteLine("4. Edit Contact"); //UC3
+                Console.WriteLine("5. Delete Contact"); //UC4
+                Console.WriteLine("6. Exit");
                 Console.WriteLine("Enter your choice:");
 
                 string choice = Console.ReadLine();

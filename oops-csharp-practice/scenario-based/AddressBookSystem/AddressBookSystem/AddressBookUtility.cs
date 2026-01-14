@@ -21,6 +21,26 @@ namespace AddressBookSystem
 
                 Console.WriteLine("Enter Last Name:");
                 string lastName = Console.ReadLine();
+                
+                // UC7: Duplicate check
+                bool isDuplicate = false;
+
+                for (int i = 0; i < contacts.Count; i++)
+                {
+                    if (contacts[i].FirstName == firstName &&
+                        contacts[i].LastName == lastName)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (isDuplicate)
+                {
+                    Console.WriteLine("Duplicate Contact Found. Cannot Add.");
+                    return;
+                }
+
 
                 Console.WriteLine("Enter Address:");
                 string address = Console.ReadLine();
@@ -40,7 +60,7 @@ namespace AddressBookSystem
                 Console.WriteLine("Enter Email:");
                 string email = Console.ReadLine();
 
-                // Create Contact object (composition)
+                //Create Contact object (composition)
                 Contact contact = new Contact()
                 {
                     FirstName = firstName,
@@ -56,7 +76,7 @@ namespace AddressBookSystem
                 contacts.Add(contact);
 
                 Console.WriteLine("New Contact Added Successfully!");
-                Console.WriteLine("Do you want to add another contact? (yes/no)");
+                Console.WriteLine("Do you want to add another contact? (yes/no)"); //UC5
                 choice = Console.ReadLine();
             }
         }

@@ -12,6 +12,27 @@ namespace AddressBookSystem
         public string Zip { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+       
+        // UC7: Override Equals to check duplicate
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            Contact other = obj as Contact;
+
+            if (other == null)
+                return false;
+
+            return this.FirstName == other.FirstName &&
+                   this.LastName == other.LastName;
+        }
+
+        public override int GetHashCode()
+        {
+            return (FirstName + LastName).GetHashCode();
+        }
+
 
         public void Display()
         {
