@@ -61,9 +61,9 @@ namespace AddressBookSystem
             }
 
             Console.WriteLine("All Contacts:");
-            foreach (Contact contact in contacts)
+            for (int i = 0; i < contacts.Count; i++)
             {
-                contact.Display();
+                contacts[i].Display();
             }
         }
         // UC-3: Edit existing contact
@@ -128,6 +128,39 @@ namespace AddressBookSystem
 
             Console.WriteLine("Contact Updated Successfully!");
         }
+
+        // UC4: Delete contact using name
+        public void DeleteContact()
+        {
+            Console.WriteLine("Enter First Name of contact to delete:");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter Last Name of contact to delete:");
+            string lastName = Console.ReadLine();
+
+            int index = -1;
+
+            // search contact using for loop
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                if (contacts[i].FirstName == firstName &&
+                    contacts[i].LastName == lastName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == -1)
+            {
+                Console.WriteLine("Contact not found.");
+                return;
+            }
+
+            contacts.RemoveAt(index);
+            Console.WriteLine("Contact Deleted Successfully!");
+        }
+
 
     }
 }

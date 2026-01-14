@@ -10,11 +10,12 @@ namespace AddressBookSystem
         {
             while (true)
             {
-                Console.WriteLine("\nAddress Book Menu");
+                Console.WriteLine("\nAddress Book Menu"); //UC2
                 Console.WriteLine("1. Add Contact");
                 Console.WriteLine("2. View Contacts");
                 Console.WriteLine("3. Edit Contact"); //UC3
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Delete Contact"); //UC4
+                Console.WriteLine("5. Exit");
                 Console.WriteLine("Enter your choice:");
 
                 string choice = Console.ReadLine();
@@ -31,6 +32,10 @@ namespace AddressBookSystem
                         utility.EditContact();
                         break;
                     case "4":
+                        utility.DeleteContact();
+                        break;
+
+                    case "5":
                         Console.WriteLine("Exiting Address Book...");
                         return;
                     default:
