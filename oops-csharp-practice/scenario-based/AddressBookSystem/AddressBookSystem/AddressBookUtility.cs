@@ -8,48 +8,57 @@ namespace AddressBookSystem
         private List<Contact> contacts = new List<Contact>();
 
         // UC-2 Add New Contact (Console input)
+        //UC-5 Add multiple contacts
         public void AddContact()
         {
-            Console.WriteLine("Enter First Name:");
-            string firstName = Console.ReadLine();
+            string choice = "yes";
 
-            Console.WriteLine("Enter Last Name:");
-            string lastName = Console.ReadLine();
+            while (choice == "yes")
 
-            Console.WriteLine("Enter Address:");
-            string address = Console.ReadLine();
-
-            Console.WriteLine("Enter City:");
-            string city = Console.ReadLine();
-
-            Console.WriteLine("Enter State:");
-            string state = Console.ReadLine();
-
-            Console.WriteLine("Enter Zip:");
-            string zip = Console.ReadLine();
-
-            Console.WriteLine("Enter Phone Number:");
-            string phone = Console.ReadLine();
-
-            Console.WriteLine("Enter Email:");
-            string email = Console.ReadLine();
-
-            // Create Contact object (composition)
-            Contact contact = new Contact()
             {
-                FirstName = firstName,
-                LastName = lastName,
-                Address = address,
-                City = city,
-                State = state,
-                Zip = zip,
-                PhoneNumber = phone,
-                Email = email
-            };
+                Console.WriteLine("Enter First Name:");
+                string firstName = Console.ReadLine();
 
-            contacts.Add(contact);
+                Console.WriteLine("Enter Last Name:");
+                string lastName = Console.ReadLine();
 
-            Console.WriteLine("New Contact Added Successfully!");
+                Console.WriteLine("Enter Address:");
+                string address = Console.ReadLine();
+
+                Console.WriteLine("Enter City:");
+                string city = Console.ReadLine();
+
+                Console.WriteLine("Enter State:");
+                string state = Console.ReadLine();
+
+                Console.WriteLine("Enter Zip:");
+                string zip = Console.ReadLine();
+
+                Console.WriteLine("Enter Phone Number:");
+                string phone = Console.ReadLine();
+
+                Console.WriteLine("Enter Email:");
+                string email = Console.ReadLine();
+
+                // Create Contact object (composition)
+                Contact contact = new Contact()
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Address = address,
+                    City = city,
+                    State = state,
+                    Zip = zip,
+                    PhoneNumber = phone,
+                    Email = email
+                };
+
+                contacts.Add(contact);
+
+                Console.WriteLine("New Contact Added Successfully!");
+                Console.WriteLine("Do you want to add another contact? (yes/no)");
+                choice = Console.ReadLine();
+            }
         }
 
         public void ViewContacts()
