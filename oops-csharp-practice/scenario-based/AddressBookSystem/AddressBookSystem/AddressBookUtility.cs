@@ -7,37 +7,49 @@ namespace AddressBookSystem
     {
         private List<Contact> contacts = new List<Contact>();
 
+        // UC-2 Add New Contact (Console input)
         public void AddContact()
         {
-            Contact contact = new Contact();
-
             Console.WriteLine("Enter First Name:");
-            contact.FirstName = Console.ReadLine();
+            string firstName = Console.ReadLine();
 
             Console.WriteLine("Enter Last Name:");
-            contact.LastName = Console.ReadLine();
+            string lastName = Console.ReadLine();
 
             Console.WriteLine("Enter Address:");
-            contact.Address = Console.ReadLine();
+            string address = Console.ReadLine();
 
             Console.WriteLine("Enter City:");
-            contact.City = Console.ReadLine();
+            string city = Console.ReadLine();
 
             Console.WriteLine("Enter State:");
-            contact.State = Console.ReadLine();
+            string state = Console.ReadLine();
 
             Console.WriteLine("Enter Zip:");
-            contact.Zip = Console.ReadLine();
+            string zip = Console.ReadLine();
 
             Console.WriteLine("Enter Phone Number:");
-            contact.PhoneNumber = Console.ReadLine();
+            string phone = Console.ReadLine();
 
             Console.WriteLine("Enter Email:");
-            contact.Email = Console.ReadLine();
+            string email = Console.ReadLine();
+
+            // Create Contact object (composition)
+            Contact contact = new Contact()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Address = address,
+                City = city,
+                State = state,
+                Zip = zip,
+                PhoneNumber = phone,
+                Email = email
+            };
 
             contacts.Add(contact);
 
-            Console.WriteLine("Contact Added Successfully!");
+            Console.WriteLine("New Contact Added Successfully!");
         }
 
         public void ViewContacts()
