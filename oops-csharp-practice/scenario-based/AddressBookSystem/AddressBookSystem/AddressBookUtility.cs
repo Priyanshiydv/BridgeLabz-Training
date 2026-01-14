@@ -66,5 +66,69 @@ namespace AddressBookSystem
                 contact.Display();
             }
         }
+        // UC-3: Edit existing contact
+        public void EditContact()
+        {
+            Console.WriteLine("Enter First Name of contact to edit:");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter Last Name of contact to edit:");
+            string lastName = Console.ReadLine();
+
+            Contact found = null;
+
+            
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                if (contacts[i].FirstName == firstName && contacts[i].LastName == lastName)
+                {
+                    found = contacts[i];
+                    break;
+                }
+            }
+
+            if (found == null)
+            {
+                Console.WriteLine("Contact not found.");
+                return;
+            }
+
+            // Update details
+            Console.WriteLine("Editing contact. Press Enter to keep existing value.");
+
+            Console.WriteLine("Current Address: " + found.Address);
+            Console.WriteLine("Enter New Address:");
+            string address = Console.ReadLine();
+            if (address != "") found.Address = address;
+
+            Console.WriteLine("Current City: " + found.City);
+            Console.WriteLine("Enter New City:");
+            string city = Console.ReadLine();
+            if (city != "") found.City = city;
+
+            Console.WriteLine("Current State: " + found.State);
+            Console.WriteLine("Enter New State:");
+            string state = Console.ReadLine();
+            if (state != "") found.State = state;
+
+            Console.WriteLine("Current Zip: " + found.Zip);
+            Console.WriteLine("Enter New Zip:");
+            string zip = Console.ReadLine();
+            if (zip != "") found.Zip = zip;
+
+            Console.WriteLine("Current Phone: " + found.PhoneNumber);
+            Console.WriteLine("Enter New Phone:");
+            string phone = Console.ReadLine();
+            if (phone != "") found.PhoneNumber = phone;
+
+            Console.WriteLine("Current Email: " + found.Email);
+            Console.WriteLine("Enter New Email:");
+            string email = Console.ReadLine();
+            if (email != "") found.Email = email;
+
+            Console.WriteLine("Contact Updated Successfully!");
+        }
+
     }
 }
+      
