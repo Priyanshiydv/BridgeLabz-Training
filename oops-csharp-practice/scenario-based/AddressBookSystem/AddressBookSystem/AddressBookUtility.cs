@@ -6,7 +6,7 @@ namespace AddressBookSystem
     class AddressBookUtility
     {
         private List<Contact> contacts = new List<Contact>();
-           
+
         // UC-2 Add New Contact (Console input)
         //UC-5 Add multiple contacts
         public void AddContact()
@@ -189,8 +189,11 @@ namespace AddressBookSystem
             contacts.RemoveAt(index);
             Console.WriteLine("Contact Deleted Successfully!");
         }
-
-
+        // UC8: getter for search across multiple address books
+        public List<Contact> GetContacts()
+        {
+            return contacts;
+        }
     }
 }
       

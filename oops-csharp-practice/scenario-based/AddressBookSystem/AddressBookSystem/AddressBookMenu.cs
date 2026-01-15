@@ -4,9 +4,11 @@ namespace AddressBookSystem
 {
     class AddressBookMenu
     {
+        private AddressBookSystemManager systemManager = new AddressBookSystemManager();
+
         //private AddressBookUtility utility = new AddressBookUtility();
         private Dictionary<string, AddressBookUtility> addressBooks =
-    new Dictionary<string, AddressBookUtility>();
+    new Dictionary<string, AddressBookUtility>(); //UC6
 
 
         public void ShowMenu()
@@ -20,87 +22,50 @@ namespace AddressBookSystem
                 Console.WriteLine("4. Edit Contact"); //UC3
                 Console.WriteLine("5. Delete Contact"); //UC4
                 Console.WriteLine("6. Exit");
+                Console.WriteLine("7. Search Person by City or State"); //UC8
+
                 Console.WriteLine("Enter your choice:");
 
                 string choice = Console.ReadLine();
 
                 switch (choice)
-                { 
+                {
                     case "1":
-                        CreateAddressBook();  //UC6
+                        systemManager.CreateAddressBook();  //UC6
                         break;
-
                     case "2":
-                        AddressBookUtility book1 = SelectAddressBook(); 
+                        var book1 = systemManager.SelectAddressBook();
                         if (book1 != null) book1.AddContact();
                         break;
 
                     case "3":
-                        AddressBookUtility book2 = SelectAddressBook();
+                        var book2 = systemManager.SelectAddressBook();
                         if (book2 != null) book2.ViewContacts();
                         break;
 
                     case "4":
-                        AddressBookUtility book3 = SelectAddressBook();
+                        var book3 = systemManager.SelectAddressBook();
                         if (book3 != null) book3.EditContact();
                         break;
 
                     case "5":
-                        AddressBookUtility book4 = SelectAddressBook();
+                        var book4 = systemManager.SelectAddressBook();
                         if (book4 != null) book4.DeleteContact();
                         break;
 
-                /*{
-                    case "1":
-                        utility.AddContact();
-                        break;
-                    case "2":
-                        utility.ViewContacts();
-                        break;
-                    case "3":
-                        utility.EditContact();
-                        break;
-                    case "4":
-                        utility.DeleteContact();
-                        break;*/
-
-
                     case "6":
-                        Console.WriteLine("Exiting Address Book...");
                         return;
+
+                    case "7":
+                        systemManager.SearchPersonByCityOrState();
+                        break;
+
                     default:
-                        Console.WriteLine("Invalid Choice. Try Again.");
+                        Console.WriteLine("Invalid Choice.");
                         break;
                 }
             }
         }
-        private void CreateAddressBook()
-        {
-            Console.WriteLine("Enter Address Book Name:");
-            string name = Console.ReadLine();
-
-            if (addressBooks.ContainsKey(name))
-            {
-                Console.WriteLine("Address Book already exists.");
-                return;
-            }
-
-            addressBooks.Add(name, new AddressBookUtility());
-            Console.WriteLine("Address Book Created Successfully!");
-        }
-
-        private AddressBookUtility SelectAddressBook()
-        {
-            Console.WriteLine("Enter Address Book Name:");
-            string name = Console.ReadLine();
-
-            if (addressBooks.ContainsKey(name))
-            {
-                return addressBooks[name];
-            }
-
-            Console.WriteLine("Address Book Not Found.");
-            return null;
-        }
     }
 }
+       
