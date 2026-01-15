@@ -194,6 +194,28 @@ namespace AddressBookSystem
         {
             return contacts;
         }
+       
+        
+        //UC11
+        public void SortContactsByName()
+        {
+            if (contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts to sort.");
+                return;
+            }
+
+            // UC11: Sort using Collection Library
+            contacts.Sort();
+
+            Console.WriteLine("Contacts Sorted Alphabetically by Name:\n");
+            
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Console.WriteLine(contacts[i].ToString());
+            }
+        }
+
     }
 }
       

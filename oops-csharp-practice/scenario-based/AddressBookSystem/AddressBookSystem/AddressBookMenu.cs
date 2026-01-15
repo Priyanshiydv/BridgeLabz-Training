@@ -23,6 +23,11 @@ namespace AddressBookSystem
                 Console.WriteLine("5. Delete Contact"); //UC4
                 Console.WriteLine("6. Exit");
                 Console.WriteLine("7. Search Person by City or State"); //UC8
+                Console.WriteLine("8. View Persons by City or State"); //UC9
+                Console.WriteLine("9. Count Contacts by City or State"); //UC10
+                Console.WriteLine("10. Sort Contacts by Name"); //UC11
+
+
 
                 Console.WriteLine("Enter your choice:");
 
@@ -59,6 +64,18 @@ namespace AddressBookSystem
                     case "7":
                         systemManager.SearchPersonByCityOrState();
                         break;
+                    case "8":
+                        systemManager.ViewPersonsByCityOrState();
+                        break;
+                    case "9":
+                        systemManager.CountContactsByCityOrState();
+                        break;
+                    case "10":
+                        var book = systemManager.SelectAddressBook();
+                        if (book != null)
+                            book.SortContactsByName();
+                        break;
+
 
                     default:
                         Console.WriteLine("Invalid Choice.");

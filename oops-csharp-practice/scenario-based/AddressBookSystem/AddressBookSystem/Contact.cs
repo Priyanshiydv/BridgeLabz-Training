@@ -2,7 +2,7 @@
 
 namespace AddressBookSystem
 {
-    class Contact
+    class Contact :IComparable<Contact> //UC11
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,8 +12,22 @@ namespace AddressBookSystem
         public string Zip { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-   
 
+        // UC11: Compare contacts by First Name
+        public int CompareTo(Contact other)
+        {
+            return this.FirstName.CompareTo(other.FirstName);
+        }
+
+        // UC11: Override ToString() for printing
+        public override string ToString()
+        {
+            return "Name: " + FirstName + " " + LastName +
+                   "\nAddress: " + Address + ", " + City + ", " + State + " - " + Zip +
+                   "\nPhone: " + PhoneNumber +
+                   "\nEmail: " + Email +
+                   "\n----------------------------";
+        }
 
         public void Display()
         {
