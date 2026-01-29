@@ -1378,5 +1378,162 @@ These projects reinforced:
 - Strengthened confidence in explaining *why a data structure or algorithm is used*.
 
 
+# 📅 21 January 2026
+
+## ✅ Tasks Completed  
+### C# Collections & System Design Practice
+
+---
+
+## 🔹 List Interface Problems
+- Reversed *ArrayList* and *LinkedList* without using built-in reverse methods  
+- Found frequency of elements using *Dictionary*  
+- Rotated list elements by given positions  
+- Removed duplicates while preserving insertion order  
+- Found *Nth element from the end* of a LinkedList without calculating size  
+
+---
+
+## 🔹 Set Interface Problems
+- Checked equality of two sets  
+- Implemented *Union, **Intersection, and **Symmetric Difference*  
+- Converted *HashSet* to a sorted list  
+- Verified subset relationships  
+
+---
+
+## 🔹 Queue Interface Problems
+- Reversed a queue using auxiliary data structures  
+- Generated first *N binary numbers* using queue logic  
+- Designed a *Hospital Triage System* using *PriorityQueue* based on severity  
+
+---
+
+## 🔹 Map (Dictionary) Problems
+- Implemented *Word Frequency Counter*  
+- Inverted a dictionary to map *values → list of keys*  
+
+---
+
+## 🎯 Learning Outcome
+- Strengthened understanding of *C# Collection Interfaces*
+- Applied *DSA concepts* to real-world system design problems
+- Improved confidence in writing *interview-ready and scalable code*
+- Gained clarity on *why and when* to use specific data structures  
+
+---
+## 🗓️ 22 January 2026 – Advanced C# & Streams
+
+### Topics Covered
+- PipeStream in C#
+- Internal data communication concepts
+
+### Key Learnings
+- Learned the use of *PipeStream* for inter-process and inter-thread communication.
+- Understood scenarios where *anonymous pipes* and *named pipes* are used.
+- Created *markdown-based documentation* for technical concepts.
+
+---
+
+## 🗓️ 23 January 2026 – Unit Testing & Regular Expressions
+
+### Topics Covered
+- Unit Testing in C#
+- NUnit vs MSTest
+- Regular Expressions (Regex)
+
+### Key Learnings
+- Practiced writing *unit test cases* using NUnit and MSTest frameworks.
+- Implemented test cases for:
+  - Calculator operations
+  - String utilities
+  - List operations
+  - Exception handling (division by zero)
+- Compared *NUnit vs MSTest* in tabular format for interview preparation.
+- Learned *Regex patterns* for validation and string matching.
+- Created *structured project folders* for test-driven development.
+
+---
+
+## 🗓️ 27 January 2026 – Code Quality & SonarQube
+
+### Topics Covered
+- SonarQube Overview
+- SonarScanner for .NET
+- Code Quality, Bugs, and Code Smells
+
+### Key Learnings
+- Installed and configured *SonarQube* locally.
+- Learned how to integrate SonarQube with a *.NET C# project*.
+- Implemented SonarQube analysis for:
+  - Calculator Project
+  - AddressBook Application
+- Used global *dotnet-sonarscanner* tool for analysis.
+
+### Commands Practiced
+bash
+dotnet sonarscanner begin
+dotnet build
+dotnet test
+dotnet sonarscanner end
+
+---
+## 📅 Date 28 January 2026
+## ✅ Tasks Completed
+
+### 📄 CSV File Operations
+- Created and used multiple CSV files:
+  - students.csv
+  - users.csv
+  - employees.csv
+  - big.csv
+- Read CSV data using:
+  - File.ReadAllLines()
+  - StreamReader
+- Wrote structured data into CSV files using:
+  - File.WriteAllLines()
+  - StreamWriter
+- Counted records excluding the header row.
+
+---
+
+### 🔍 Data Processing & Logic
+- Filtered CSV records based on conditions (e.g., students with marks > 80).
+- Searched records by specific fields (employee name).
+- Updated CSV data (10% salary increment for IT department).
+- Sorted records by salary and extracted top 5 highest-paid employees.
+- Detected duplicate records using LINQ grouping.
+
+---
+
+### 🧪 Data Validation
+- Validated *Email* format using Regular Expressions.
+- Validated *Phone Numbers* (exactly 10 digits).
+- Printed invalid CSV rows with appropriate error identification.
+
+---
+
+### 🔄 CSV ↔ JSON Conversion
+- Converted students.json → students.csv.
+- Converted students.csv → students_from_csv.json.
+- Resolved .NET 8 JSON serialization issues using:
+  - DefaultJsonTypeInfoResolver.
+
+---
+
+### 🚀 Performance Handling
+- Implemented *memory-efficient reading* for large CSV files (500MB+).
+- Processed CSV data in chunks of *100 lines* using StreamReader.
+
+---
+
+### 🔐 Security (Encryption & Decryption)
+- Implemented *AES encryption and decryption*.
+- Encrypted sensitive fields such as:
+  - Email
+  - Salary
+- Decrypted data safely while reading from CSV files.
+
+---
 
 ---
