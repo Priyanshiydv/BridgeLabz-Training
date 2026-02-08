@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions; // for email and phone validation
 
 namespace AddressBookSystem
 {
@@ -54,11 +55,31 @@ namespace AddressBookSystem
                 Console.WriteLine("Enter Zip:");
                 string zip = Console.ReadLine();
 
-                Console.WriteLine("Enter Phone Number:");
-                string phone = Console.ReadLine();
+                //  PHONE VALIDATION 
+                string phone;
+                while (true)
+                {
+                    Console.WriteLine("Enter Phone Number:");
+                    phone = Console.ReadLine();
 
-                Console.WriteLine("Enter Email:");
-                string email = Console.ReadLine();
+                    if (Regex.IsMatch(phone, @"^\d{10}$"))
+                        break;
+
+                    Console.WriteLine("Invalid phone number! Must be exactly 10 digits.");
+                }
+
+                //  EMAIL VALIDATION 
+                string email;
+                while (true)
+                {
+                    Console.WriteLine("Enter Email:");
+                    email = Console.ReadLine();
+
+                    if (Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                        break;
+
+                    Console.WriteLine("Invalid email format!");
+                }
 
                 //Create Contact object (composition)
                 Contact contact = new Contact()
@@ -196,7 +217,7 @@ namespace AddressBookSystem
         }
        
         
-        //UC11
+        //UC11 -Sort using Collection Library
         public void SortContactsByName()
         {
             if (contacts.Count == 0)
@@ -205,7 +226,7 @@ namespace AddressBookSystem
                 return;
             }
 
-            // UC11: Sort using Collection Library
+             
             contacts.Sort();
 
             Console.WriteLine("Contacts Sorted Alphabetically by Name:\n");
@@ -215,6 +236,53 @@ namespace AddressBookSystem
                 Console.WriteLine(contacts[i].ToString());
             }
         }
+        
+        // UC12: Sort contacts by City, State or Zip
+        public void SortContactsByLocation()
+        {
+            if (contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts to sort.");
+                return;
+            }
+
+            Console.WriteLine("Sort By:");
+            Console.WriteLine("1. City");
+            Console.WriteLine("2. State");
+            Console.WriteLine("3. Zip");
+
+            string option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    contacts.Sort((a, b) => a.City.CompareTo(b.City));
+                    Console.WriteLine("\nSorted by City:\n");
+                    break;
+
+                case "2":
+                    contacts.Sort((a, b) => a.State.CompareTo(b.State));
+                    Console.WriteLine("\nSorted by State:\n");
+                    break;
+
+                case "3":
+                    contacts.Sort((a, b) => a.Zip.CompareTo(b.Zip));
+                    Console.WriteLine("\nSorted by Zip:\n");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid option.");
+                    return;
+            }
+
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Console.WriteLine(contacts[i]);
+            }
+        }
+
+
+        
 
     }
 }
