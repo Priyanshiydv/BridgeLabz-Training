@@ -1471,12 +1471,10 @@ These projects reinforced:
 - Used global *dotnet-sonarscanner* tool for analysis.
 
 ### Commands Practiced
-bash
 dotnet sonarscanner begin
 dotnet build
 dotnet test
 dotnet sonarscanner end
-
 ---
 ## 📅 Date 28 January 2026
 ## ✅ Tasks Completed
@@ -1535,5 +1533,168 @@ dotnet sonarscanner end
 - Decrypted data safely while reading from CSV files.
 
 ---
+📅 Date 29 January 2026
+✅ Tasks Completed Today
+1️⃣ OceanFleet Analytics Console Application (.NET)
+Converted the OceanFleet Java problem statement into a C# (.NET) console application
+Followed proper OOP design
+Implemented all required components:
+Vessel model class
+VesselUtil utility class
+Program (User Interface)
+✔ Features Implemented
+Add vessel performance details
+Retrieve vessel details by case-sensitive vesselId
+Identify high-performance vessels (highest average speed)
+Display output in the required format
+Used List<Vessel> collection
+Used LINQ for searching and filtering
 
+2️⃣ Project Structure Design (Address Book Application with SonarQube)
+The Address Book application follows a layered architecture to ensure:
+
+Clean separation of concerns
+High maintainability
+Better SonarQube code quality scores
+Easy unit testing
+
+Date 30 january 2026
+✅ Project Built
+LexicalTextAnalyser (Console Application)
+A console-based application developed to analyze and process textual data using various string concepts in C#.
+
+✅ Topics & Concepts Used
+String manipulation techniques
+Character analysis
+Conditional logic and loops
+Menu-driven console application design
+Use of StringBuilder for performance optimization
+🧪 Functionalities Implemented
+Text input and validation
+Word count and character count
+Vowel and consonant identification
+Reverse text analysis
+Case-insensitive string comparison
+Symbol and whitespace handling
+📌 Key Learnings
+Deep understanding of core string operations in C#
+Writing modular and reusable methods
+Handling edge cases in text processing
+Improving performance using StringBuilder over string concatenation
+
+📅 Date: 02 February
+✅ Topics Covered
+File handling in C# (.NET)
+CSV data handling concepts
+JSON data handling concepts
+LINQ and lambda expressions
+Stream-style data processing using LINQ
+🧪 Practical Work
+Read and write CSV files
+Converted CSV data to objects
+Performed operations on CSV data:
+Filter
+Sort
+Search
+Update
+Merge
+Practiced JSON operations:
+Read JSON
+Extract fields
+Convert CSV ↔ JSON
+Used LINQ methods:
+Where
+Select
+Any
+All
+GroupBy
+📌 Key Learnings
+Efficient data processing using LINQ
+Difference between traditional loops and stream-style processing
+Real-world usage of file handling in .NET projects
+🏁 Summary
+Strengthened fundamentals of C# and .NET
+Improved problem-solving and debugging skills
+Gained hands-on experience with real-world data formats (CSV & JSON)
+Learned to write cleaner, more maintainable code using modern C# features
+
+📅 Date: 03 February
+✅ Topics Covered
+Custom exception handling in C#
+Object-oriented programming concepts
+Input validation techniques
+Console application project structure
+Problem-solving using C#
+🧪 Practical Work
+Developed Factory Robot Hazard Analyzer system
+Implemented hazard risk calculation logic using:
+Arm precision
+Worker density
+Machinery state
+Added input validation for all parameters
+Created custom exception for invalid scenarios
+Structured project into logical classes
+📌 Key Learnings
+Importance of validation in real-world systems
+Using custom exceptions for better error handling
+Writing modular and maintainable code
+Applying OOP concepts in practical projects
+
+📅 Date: 04 February
+✅ Topics Covered
+SQL Server DDL and DML operations
+Transactions in SQL Server
+DELETE vs TRUNCATE vs DROP
+ROLLBACK and COMMIT concepts
+Data modification commands
+🧪 Practical Work
+Created and modified tables in PracticeDDL database
+Executed DELETE operations inside transactions
+Practiced ROLLBACK to restore deleted data
+Tested TRUNCATE behavior with transactions
+Compared DELETE, TRUNCATE, and DROP operations
+📌 Key Learnings
+Difference between logical delete and physical data removal
+Transaction control for data safety
+When to use DELETE, TRUNCATE, or DROP in real scenarios
+Understanding database recovery behavior
+
+📅 Date: 05 February
+✅ Topics Covered
+Unit testing concepts in .NET
+MSTest framework setup
+Test project creation
+Test case structure and execution
+ADO.NET introduction
+🧪 Practical Work
+Created MSTest project for console application
+Added unit tests for project logic
+Configured test environment
+Practiced writing test methods and assertions
+Integrated testing with existing project solution
+📌 Key Learnings
+Importance of testing in software development
+Writing reliable and repeatable test cases
+Separating business logic for testing
+Basics of test-driven thinking
+
+📅 Date: 07 February
+✅ Topics Covered
+Connecting MS SQL Server with C# (.NET)
+ADO.NET database connectivity
+SqlConnection and connection strings
+Git branch management
+🧪 Practical Work
+Connected console application to SQL Server database
+Opened and verified database connection programmatically
+Implemented connection handling using using statement
+Practiced Git commands:
+Create branch
+Switch branch
+Delete branch
+📌 Key Learnings
+How applications interact with databases using ADO.NET
+Safe resource management using using block
+Understanding connection strings
+Managing project versions using Git branches
 ---
