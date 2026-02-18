@@ -4,8 +4,12 @@ namespace AddressBookSystem
 {
     class AddressBookMenu
     {
-        private AddressBookSystemManager systemManager = new AddressBookSystemManager();
-        
+        private AddressBookSystemManager systemManager;
+        public AddressBookMenu()
+        {
+        IAddressBookStorage dbStorage = new DatabaseStorage();
+        systemManager = new AddressBookSystemManager(dbStorage);
+        }
 
         public async Task ShowMenu()
 
@@ -33,9 +37,11 @@ namespace AddressBookSystem
                 Console.WriteLine("15. Write Address Book to JSON"); //UC15
                 Console.WriteLine("16. Read Address Book from JSON"); //UC15
                 Console.WriteLine("17. Write Contacts to JSON Server");
-                Console.WriteLine("18. Read Contacts from JSON Server");
+                Console.WriteLine("18. Read Contacts from JSON Server");//UC16
+                Console.WriteLine("19. Save to Database");
+                Console.WriteLine("20. Load from Database");
 
-                Console.WriteLine("19. Exit");
+                Console.WriteLine("0. Exit");
 
 
 
@@ -90,31 +96,31 @@ namespace AddressBookSystem
                         break;
                     case "11":
                         var book9 = systemManager.SelectAddressBook();
-                        if (book9 != null) book9.WriteToFile();
+                        if (book9 != null) await book9.WriteToFile();
                         break;
                     case "12":
                         var book10 = systemManager.SelectAddressBook();
-                        if (book10 != null) book10.ReadFromFile();
+                        if (book10 != null) await book10.ReadFromFile();
                         break;
 
                     case "13":
                         var book11 = systemManager.SelectAddressBook();
-                        if (book11 != null) book11.WriteToCSV();
+                        if (book11 != null) await book11.WriteToCSV();
                         break;
 
                     case "14":
                         var book12 = systemManager.SelectAddressBook();
-                        if (book12 != null) book12.ReadFromCSV();
+                        if (book12 != null) await book12.ReadFromCSV();
                         break;
 
                     case "15":
                         var book13 = systemManager.SelectAddressBook();
-                        if (book13 != null) book13.WriteToJson();
+                        if (book13 != null) await book13.WriteToJson();
                         break;
 
                     case "16":
                         var book14 = systemManager.SelectAddressBook();
-                        if (book14 != null) book14.ReadFromJson();
+                        if (book14 != null) await book14.ReadFromJson();
                         break;
 
                     case "17":
@@ -127,9 +133,20 @@ namespace AddressBookSystem
                         if (book16 != null) await book16.ReadFromJsonServer();
                         break;
 
-
-
                     case "19":
+                        var book17 = systemManager.SelectAddressBook();
+                        if (book17 != null) await book17.SaveAsync();
+                        break;
+
+                    case "20":
+                        var book18 = systemManager.SelectAddressBook();
+                        if (book18 != null) await book18.LoadAsync();
+                        break;
+
+
+
+
+                    case "0":
                         Console.WriteLine("Exiting Address Book...");
                         running = false;
                         break;

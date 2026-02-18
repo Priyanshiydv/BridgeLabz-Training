@@ -5,7 +5,13 @@ namespace AddressBookSystem
 {
     class AddressBookSystemManager
     {
-        public Dictionary<string, AddressBookUtility> addressBooks = new Dictionary<string, AddressBookUtility>(); //UC6
+        private IAddressBookStorage storage;
+        public Dictionary<string, AddressBookUtility> addressBooks; //UC6
+        public AddressBookSystemManager(IAddressBookStorage storage)
+        {
+            this.storage = storage;
+            addressBooks = new Dictionary<string, AddressBookUtility>();
+        }
 
         public void CreateAddressBook()
         {
@@ -18,7 +24,7 @@ namespace AddressBookSystem
                 return;
             }
 
-            addressBooks[name] = new AddressBookUtility();
+            addressBooks[name] = new AddressBookUtility(storage);
             Console.WriteLine("Address Book Created Successfully!");
         }
 

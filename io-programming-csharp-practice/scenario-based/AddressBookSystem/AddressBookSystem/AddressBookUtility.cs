@@ -12,6 +12,13 @@ namespace AddressBookSystem
 {
     class AddressBookUtility
     {
+        private IAddressBookStorage storage;
+        public AddressBookUtility(IAddressBookStorage storage)
+        {
+            this.storage = storage;
+        }
+
+
         private List<Contact> contacts = new List<Contact>();
 
         private static readonly HttpClient client = new HttpClient();
@@ -291,124 +298,137 @@ namespace AddressBookSystem
         }
 
         // UC13: Write Address Book to File
-        public void WriteToFile()
+        public async Task WriteToFile()
         {
-            string path = "AddressBook.txt";
-
-            using (StreamWriter writer = new StreamWriter(path))
+            await Task.Run(() =>
             {
-                for (int i = 0; i < contacts.Count; i++)
+                string path = "AddressBook.txt";
+                using (StreamWriter writer = new StreamWriter(path))
                 {
-                    Contact c = contacts[i];
-                    writer.WriteLine(c.FirstName + "," +
-                                    c.LastName + "," +
-                                    c.Address + "," +
-                                    c.City + "," +
-                                    c.State + "," +
-                                    c.Zip + "," +
-                                    c.PhoneNumber + "," +
-                                    c.Email);
+                    for (int i = 0; i < contacts.Count; i++)
+                    {
+                        Contact c = contacts[i];
+                        writer.WriteLine(c.FirstName + "," +
+                                        c.LastName + "," +
+                                        c.Address + "," +
+                                        c.City + "," +
+                                        c.State + "," +
+                                        c.Zip + "," +
+                                        c.PhoneNumber + "," +
+                                        c.Email);
+                    }
                 }
-            }
+            });
 
             Console.WriteLine("Address Book written to file successfully!");
         }
 
         // UC13: Read Address Book from File
-        public void ReadFromFile()
+        public async Task ReadFromFile()
         {
-            string path = "AddressBook.txt";
-
-            if (!File.Exists(path))
+            await Task.Run(() =>
             {
-                Console.WriteLine("File not found.");
-                return;
-            }
+                string path = "AddressBook.txt";
 
-            contacts.Clear();
-
-            string[] lines = File.ReadAllLines(path);
-
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string[] data = lines[i].Split(',');
-
-                Contact c = new Contact()
+                if (!File.Exists(path))
                 {
-                    FirstName = data[0],
-                    LastName = data[1],
-                    Address = data[2],
-                    City = data[3],
-                    State = data[4],
-                    Zip = data[5],
-                    PhoneNumber = data[6],
-                    Email = data[7]
-                };
+                    Console.WriteLine("File not found.");
+                    return;
+                }
 
-                contacts.Add(c);
-            }
+                contacts.Clear();
 
+                string[] lines = File.ReadAllLines(path);
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] data = lines[i].Split(',');
+
+                    Contact c = new Contact()
+                    {
+                        FirstName = data[0],
+                        LastName = data[1],
+                        Address = data[2],
+                        City = data[3],
+                        State = data[4],
+                        Zip = data[5],
+                        PhoneNumber = data[6],
+                        Email = data[7]
+                    };
+
+                    contacts.Add(c);
+                }
+            });
             Console.WriteLine("Address Book loaded from file successfully!");
         }
 
         // UC14: Write Address Book to CSV
-        public void WriteToCSV()
+        public async Task WriteToCSV()
         {
-            using (var writer = new StreamWriter("AddressBook.csv"))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            await Task.Run(() =>
             {
-                csv.WriteRecords(contacts);
-            }
+                using (var writer = new StreamWriter("AddressBook.csv"))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteRecords(contacts);
+                }
+            });
 
             Console.WriteLine("Address Book saved as CSV file!");
         }
 
         // UC14: Read Address Book from CSV
-        public void ReadFromCSV()
+        public async Task ReadFromCSV()
         {
-            if (!File.Exists("AddressBook.csv"))
+            await Task.Run(() =>
             {
-                Console.WriteLine("CSV file not found.");
-                return;
-            }
-
-            using (var reader = new StreamReader("AddressBook.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                contacts.Clear();
-                var records = csv.GetRecords<Contact>();
-
-                foreach (var contact in records)
+                if (!File.Exists("AddressBook.csv"))
                 {
-                    contacts.Add(contact);
+                    Console.WriteLine("CSV file not found.");
+                    return;
                 }
-            }
+
+                using (var reader = new StreamReader("AddressBook.csv"))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    contacts.Clear();
+                    var records = csv.GetRecords<Contact>();
+
+                    foreach (var contact in records)
+                    {
+                        contacts.Add(contact);
+                    }
+                }
+            });
 
             Console.WriteLine("Address Book loaded from CSV file!");
         }
 
 
         // UC15: Write Address Book to JSON
-        public void WriteToJson()
+        public async Task WriteToJson()
         {
-            string path = "AddressBook.json";
-
-            using (StreamWriter writer = new StreamWriter(path))
+            await Task.Run(() =>
             {
-                writer.WriteLine("[");
+                string path = "AddressBook.json";
 
-                for (int i = 0; i < contacts.Count; i++)
+                using (StreamWriter writer = new StreamWriter(path))
                 {
-                    string json = JsonSerializer.Serialize(contacts[i]);
+                    writer.WriteLine("[");
 
-                    if (i < contacts.Count - 1)
-                        writer.WriteLine(json + ",");
-                    else
-                        writer.WriteLine(json);
+                    for (int i = 0; i < contacts.Count; i++)
+                    {
+                        string json = JsonSerializer.Serialize(contacts[i]);
+
+                        if (i < contacts.Count - 1)
+                            writer.WriteLine(json + ",");
+                        else
+                            writer.WriteLine(json);
+                    }
+
+                    writer.WriteLine("]");
                 }
-
-                writer.WriteLine("]");
-            }
+            });
 
             Console.WriteLine("Address Book saved in JSON format!");
         }
@@ -416,26 +436,29 @@ namespace AddressBookSystem
 
 
         // UC15: Read Address Book from JSON
-        public void ReadFromJson()
+        public async Task ReadFromJson()
         {
-            string path = "AddressBook.json";
-
-            if (!File.Exists(path))
+            await Task.Run(() =>
             {
-                Console.WriteLine("JSON file not found.");
-                return;
-            }
+                string path = "AddressBook.json";
 
-            string json = File.ReadAllText(path);
+                if (!File.Exists(path))
+                {
+                    Console.WriteLine("JSON file not found.");
+                    return;
+                }
 
-            List<Contact> data = JsonSerializer.Deserialize<List<Contact>>(json);
+                string json = File.ReadAllText(path);
 
-            contacts.Clear();
+                List<Contact> data = JsonSerializer.Deserialize<List<Contact>>(json);
 
-            for (int i = 0; i < data.Count; i++)
-            {
-                contacts.Add(data[i]);
-            }
+                contacts.Clear();
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    contacts.Add(data[i]);
+                }
+            });
 
             Console.WriteLine("Address Book loaded from JSON file!");
         }
@@ -486,17 +509,18 @@ namespace AddressBookSystem
             Console.WriteLine("Contacts loaded from JSON Server!");
         }
 
+//UC 18 
+        public async Task SaveAsync()
+        {
+            await storage.SaveAsync(contacts);
+            Console.WriteLine("Saved Successfully!");
+        }
 
-
-
-
-
-
-
-
-
-
-        
+        public async Task LoadAsync()
+        {
+            contacts = await storage.LoadAsync();
+            Console.WriteLine("Loaded Successfully!");
+        }
 
     }
 }

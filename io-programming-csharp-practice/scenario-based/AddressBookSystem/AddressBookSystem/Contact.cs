@@ -2,7 +2,7 @@
 
 namespace AddressBookSystem
 {
-    class Contact :IComparable<Contact> //UC11
+   public class Contact :IComparable<Contact> //UC11
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
