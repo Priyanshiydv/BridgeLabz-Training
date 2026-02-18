@@ -1,10 +1,10 @@
-﻿using TechVilleSmartCity.Services;
+﻿using TechVilleSmartCity.Menu;
 
 class Program
 {
     static void Main(string[] args)
     {
-        CitizenRegistrationService service = new CitizenRegistrationService();
-        service.RegisterCitizen();
+        MainMenu menu = new MainMenu();
+        menu.Show();
     }
 }
