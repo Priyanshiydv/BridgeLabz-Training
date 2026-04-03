@@ -1,0 +1,4 @@
+Hello, this is a sample text file.
+We are learning File Handling in C#.
+FileStream is used to read and write files.
+BridgeLabz Training.
